@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S&box Key Generator</title>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .login-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+  }
+  #codeContainer {
+    padding: 20px 40px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-align: center;
+  }
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+  footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<button class="login-button">Login</button>
+
+<div class="container">
+  <header>
+    <h1>S&box Key Generator</h1>
+  </header>
+  <div id="codeContainer">Your code will appear here</div>
+  <button onclick="generateRandomCode()">Generate Code</button>
+</div>
+
+<footer>
+  by the Keygen Group
+</footer>
+
+<script>
+  function generateRandomCode() {
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000)
+        .toString(16)
+        .substring(1)
+        .toUpperCase();
+    }
+    const code = `${s4()}${s4()}-${s4()}-${s4()}-${s4()}-${s4()}${s4()}${s4()}`;
+    document.getElementById('codeContainer').textContent = code;
+  }
+
+  window.onload = generateRandomCode;
+</script>
+
+</body>
+</html>
